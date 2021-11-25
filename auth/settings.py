@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 from os import environ as env
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,6 +30,10 @@ ALLOWED_HOSTS = ['104.237.129.63']
 # Application definition
 
 INSTALLED_APPS = [
+    'users',
+    'ristorante',
+    'products',
+    'orders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,7 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'users'
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist'
+
 ]
 
 MIDDLEWARE = [
@@ -81,7 +88,7 @@ DATABASES = {
         'USER': env.get('PSQL_USERNAME'),
         'PASSWORD': env.get('PSQL_PASS'),
         'HOST': env.get('PSQL_HOST'),
-        'PORT': env.get('PSQL_PORT'), # 'PORT': 5432
+        'PORT': env.get('PSQL_PORT'),  # 'PORT': 5432
     }
 }
 
@@ -102,6 +109,22 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=300),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ALGORITHM': 'HS256',
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'ROTATE_REFRESH_TOKENS' : False,
+    'BLACKLIST_AFTER_ROTATION': False
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -125,3 +148,5 @@ AUTH_USER_MODEL = 'users.User'
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

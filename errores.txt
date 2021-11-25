@@ -1,0 +1,96 @@
+Environment:
+
+
+Request Method: POST
+Request URL: http://104.237.129.63:8013/api/register
+
+Django Version: 3.2.9
+Python Version: 3.10.0
+Installed Applications:
+['users',
+ 'django.contrib.admin',
+ 'django.contrib.auth',
+ 'django.contrib.contenttypes',
+ 'django.contrib.sessions',
+ 'django.contrib.messages',
+ 'django.contrib.staticfiles',
+ 'rest_framework',
+ 'corsheaders']
+Installed Middleware:
+['django.middleware.security.SecurityMiddleware',
+ 'django.contrib.sessions.middleware.SessionMiddleware',
+ 'corsheaders.middleware.CorsMiddleware',
+ 'django.middleware.common.CommonMiddleware',
+ 'django.middleware.csrf.CsrfViewMiddleware',
+ 'django.contrib.auth.middleware.AuthenticationMiddleware',
+ 'django.contrib.messages.middleware.MessageMiddleware',
+ 'django.middleware.clickjacking.XFrameOptionsMiddleware']
+
+
+
+Traceback (most recent call last):
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+
+The above exception (relation "users_user" does not exist
+LINE 1: SELECT (1) AS "a" FROM "users_user" WHERE "users_user"."user...
+                               ^
+) was the direct cause of the following exception:
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/antonio_silva/github-classroom/enroute-rockstars7g/APLICACIONRESTAURANTE/Django-Auth-with-JWT/users/views.py", line 14, in post
+    serializer.is_valid(raise_exception=True)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 220, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 419, in run_validation
+    value = self.to_internal_value(data)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 476, in to_internal_value
+    validated_value = field.run_validation(primitive_value)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/rest_framework/fields.py", line 799, in run_validation
+    return super().run_validation(data)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/rest_framework/fields.py", line 569, in run_validation
+    self.run_validators(value)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/rest_framework/fields.py", line 591, in run_validators
+    validator(value, self)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/rest_framework/validators.py", line 73, in __call__
+    if qs_exists(queryset):
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/rest_framework/validators.py", line 21, in qs_exists
+    return queryset.exists()
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/django/db/models/query.py", line 808, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/django/db/models/sql/query.py", line 552, in has_results
+    return compiler.has_results()
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1145, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/antonio_silva/.pyenv/versions/new_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+
+Exception Type: ProgrammingError at /api/register
+Exception Value: relation "users_user" does not exist
+LINE 1: SELECT (1) AS "a" FROM "users_user" WHERE "users_user"."user...
