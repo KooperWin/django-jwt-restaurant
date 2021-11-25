@@ -9,4 +9,4 @@ class Product(models.Model):
         'Product Image', upload_to='product/', null=True, blank=True)
 
     def __str__(self):
-        return self.name+' '+self.description+' '+self.price+' '+self.image
+        return self.name+' '+str(self.price)

@@ -6,7 +6,7 @@ router = routers.DefaultRouter()
 
 # define the router path and viewset to be used
 router.register(r'status', StatusViewSet)
-router.register(r'productsList', ProductsListViewSet)
+router.register(r'productslist', ProductsListViewSet)
 router.register(r'', OrderViewSet)
 
 # URLS

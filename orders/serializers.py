@@ -15,20 +15,19 @@ class Status_Serializer(serializers.ModelSerializer):
 
 class Order_Serializer(serializers.ModelSerializer):
     #user = UserSerializer()
-    #restaurant = RestaurantSerializer()
-    status = Status_Serializer()
-    #pproducts_list = ProductsList_Serializer()
+    #restaurant = RestauranteNameSerializer()
+    #status = Status_Serializer()
+    #listofproducts = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = Order
-        fields = ["id", "user", "time",
-                  "restaurant", "status", "pproducts_list"]
+        fields = '__all__'
 
 
 class ProductsList_Serializer(serializers.ModelSerializer):
-    order = Order_Serializer()
-    product = ProductSerializer()
+    #order = Order_Serializer()
+    #product = ProductSerializer()
 
     class Meta:
-        model = Products_list
+        model = Productslist
         fields = ["id", "order", "quantity", "product", "notes"]

@@ -4,6 +4,7 @@ from rest_framework_simplejwt.tokens import AccessToken, RefreshToken, TokenErro
 
 from .models import User
 
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -19,6 +20,7 @@ class UserSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+
 
 class RefreshTokenSerializer(serializers.Serializer):
     refresh = serializers.CharField()

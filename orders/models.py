@@ -20,17 +20,17 @@ class Order(models.Model):
         Restaurant, null=True, on_delete=models.DO_NOTHING)
     status = models.ForeignKey(Status, null=True, on_delete=models.DO_NOTHING)
 
-    pproducts_list = models.ManyToManyField(Product, through="Products_list")
+    listofproducts = models.ManyToManyField(Product, through="Productslist")
 
     def __str__(self):
-        return self.user + '' + self.time + '' + self.restaurant + '' + self.status + '' + self.pproducts_list
+        return self.user + '' + self.time + '' + self.restaurant + '' + self.status + '' + self.listofproducts
 
 
-class Products_list(models.Model):
+class Productslist(models.Model):
     order = models.ForeignKey(Order, null=True, on_delete=models.DO_NOTHING)
     quantity = models.IntegerField()
     product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
-    notes = models.CharField(max_length=20)
+    notes = models.CharField(max_length=20,null=True)
 
     def __str__(self):
         return self.order + ' ' + str(self.quantity) + ' ' + self.product + ' ' + self.notes

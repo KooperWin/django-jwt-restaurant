@@ -23,7 +23,7 @@ class OrderViewSet(ModelViewSet):
 
 class ProductsListViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
-    queryset = Products_list.objects.all()
+    queryset = Productslist.objects.all()
     serializer_class = ProductsList_Serializer
 
 
